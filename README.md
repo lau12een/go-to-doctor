@@ -35,7 +35,7 @@ Within this page will be a "read more" link where the user can click to get more
 
 - Clone this repository
 - Run npm install
-- API_KEY="0f28d22c9def046ae1cd6c0fee4a0fa3"
+- API_KEY="(insert API key here)"
 - Open Webpage
 - User submits the input
 - The user will get back the match results from the input.
