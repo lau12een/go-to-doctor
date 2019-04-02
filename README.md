@@ -14,6 +14,7 @@ The go to doctor app is designed and created for parents/caregivers raising indi
 ## User Stories:
 
 **Landing Page**
+
 As a user, I want to understand what the app is so that I can decide if I want to use it .
 
 Landing page will have a hero image, a "submit" button and after clicking on "submit" the landing page will be hidden
@@ -58,8 +59,11 @@ go to doctor app was built with :
 #### Front End
 
 *HTML
+
 *CSS
+
 *JavaScript
+
 *jQuery
 
 ### Responsive
