@@ -31,13 +31,13 @@ Within this page will be a "read more" link where the user can click to get more
 
 ## Designs 
 
-[![landing-page.jpg](https://i.postimg.cc/HntL948y/landing-page.jpg)](https://postimg.cc/SYJqy9rS)
+[![landing-page.jpg](https://i.postimg.cc/ZRHkffj4/landing-page.jpg)](https://postimg.cc/9RDN0Yvn)
 
-[![Search-page-1.jpg](https://i.postimg.cc/qMkqMYWX/Search-page-1.jpg)](https://postimg.cc/G95dXMLH)
+[![Search-page-1.jpg](https://i.postimg.cc/RVNrRLtx/Search-page-1.jpg)](https://postimg.cc/zVZPDWpx)
 
-[![Search-page-2.jpg](https://i.postimg.cc/sgx25WjM/Search-page-2.jpg)](https://postimg.cc/9D3Vhrq2)
+[![Search-page-2.jpg](https://i.postimg.cc/N0vWQhzQ/Search-page-2.jpg)](https://postimg.cc/Xrx2gPWP)
 
-[![Search-page-3.jpg](https://i.postimg.cc/50dNckwz/Search-page-3.jpg)](https://postimg.cc/sBmR7mHf)
+[![Search-page-3.jpg](https://i.postimg.cc/sXw8PMD2/Search-page-3.jpg)](https://postimg.cc/FdkDNsSt)
 
 ## Setup/Installation Requirements
 
