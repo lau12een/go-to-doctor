@@ -1,11 +1,10 @@
-# go-to-doctor
-# go to doctor App
+# Go To Doctor App
 
 The go to doctor app is designed and created for parents/caregivers raising individuals with autism and Adults diagnosed with autism .
 
 ### Working Prototype
 
-( insert websites here )
+https://lau12een.github.io/go-to-doctor-api-capstone/
 
 ## Site Map: MVP
 
@@ -23,16 +22,15 @@ Landing page will have a hero image, a "submit" button and after clicking on "su
 
 **Search Page**
 
-As a user, I want all the imporant information about the list of physicians in one page . 
+As a user, I want all the imporant information about the list of physicians in one page .
 
 This page will contain an input form at the top and results at the bottom
 
 Within this page will be a "read more" link where the user can click to get more information on the doctor they've selected . Once the "read more" button is selected- it will expand the physician's details
 
-## Designs 
+## Designs
 
-[![landing-page.jpg](https://i.postimg.cc/ZRHkffj4/landing-page.jpg)](https://postimg.cc/9RDN0Yvn)
-
+![Landing Page](/github-images/landing_page.jpg)
 [![Search-page-1.jpg](https://i.postimg.cc/RVNrRLtx/Search-page-1.jpg)](https://postimg.cc/zVZPDWpx)
 
 [![Search-page-2.jpg](https://i.postimg.cc/N0vWQhzQ/Search-page-2.jpg)](https://postimg.cc/Xrx2gPWP)
@@ -76,10 +74,10 @@ go to doctor app was built with :
 This app is built to be responsive to smaller screen sizes using a flex-box and media screen width breakpoint of 600px for smaller screen sizes
 
 ## Development Road Map
-Features for future iterations include: 
+Features for future iterations include:
 - Add ability for parents to chat with a live person
 - Add favorites feature where they can mark doctors they have visited and would like to recommend
 - Add ratings and review feature , so they can review and rate their experience with a doctor
-- Add a scheduling feature that user can click on once they've found a doctor they would like to visit 
+- Add a scheduling feature that user can click on once they've found a doctor they would like to visit
 
 
