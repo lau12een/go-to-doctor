@@ -1,3 +1,4 @@
+# go-to-doctor
 # go to doctor App
 
 The go to doctor app is designed and created for parents/caregivers raising individuals with autism and Adults diagnosed with autism .
@@ -12,10 +13,12 @@ The go to doctor app is designed and created for parents/caregivers raising indi
 
 ## User Stories:
 
-** Landing Page **
+**Landing Page**
+
 As a user, I want to understand what the app is so that I can decide if I want to use it .
 
 Landing page will have a hero image, a "submit" button and after clicking on "submit" the landing page will be hidden
+
 
 
 **Search Page**
@@ -27,19 +30,20 @@ This page will contain an input form at the top and results at the bottom
 Within this page will be a "read more" link where the user can click to get more information on the doctor they've selected . Once the "read more" button is selected- it will expand the physician's details
 
 ## Designs 
-[![landing-page.jpg](https://i.postimg.cc/HntL948y/landing-page.jpg)](https://postimg.cc/SYJqy9rS)
 
-[![Search-page-1.jpg](https://i.postimg.cc/qMkqMYWX/Search-page-1.jpg)](https://postimg.cc/G95dXMLH)
+[![landing-page.jpg](https://i.postimg.cc/ZRHkffj4/landing-page.jpg)](https://postimg.cc/9RDN0Yvn)
 
-[![Search-page-2.jpg](https://i.postimg.cc/sgx25WjM/Search-page-2.jpg)](https://postimg.cc/9D3Vhrq2)
+[![Search-page-1.jpg](https://i.postimg.cc/RVNrRLtx/Search-page-1.jpg)](https://postimg.cc/zVZPDWpx)
 
-[![Search-page-3.jpg](https://i.postimg.cc/50dNckwz/Search-page-3.jpg)](https://postimg.cc/sBmR7mHf)
+[![Search-page-2.jpg](https://i.postimg.cc/N0vWQhzQ/Search-page-2.jpg)](https://postimg.cc/Xrx2gPWP)
+
+[![Search-page-3.jpg](https://i.postimg.cc/sXw8PMD2/Search-page-3.jpg)](https://postimg.cc/FdkDNsSt)
 
 ## Setup/Installation Requirements
 
 - Clone this repository
 - Run npm install
-- API_KEY="0f28d22c9def046ae1cd6c0fee4a0fa3"
+- API_KEY="(insert API key here)"
 - Open Webpage
 - User submits the input
 - The user will get back the match results from the input.
@@ -54,7 +58,6 @@ Within this page will be a "read more" link where the user can click to get more
 
 
 
-
 ## Technical
 
 go to doctor app was built with :
@@ -62,8 +65,11 @@ go to doctor app was built with :
 #### Front End
 
 *HTML
+
 *CSS
+
 *JavaScript
+
 *jQuery
 
 ### Responsive
@@ -72,9 +78,8 @@ This app is built to be responsive to smaller screen sizes using a flex-box and 
 ## Development Road Map
 Features for future iterations include: 
 - Add ability for parents to chat with a live person
-- Add favorites feature where they can mark doctor's they have visited and would like to recomment
-- Add ratings and review feature , so they can review and rate their experience with such doctor
+- Add favorites feature where they can mark doctors they have visited and would like to recommend
+- Add ratings and review feature , so they can review and rate their experience with a doctor
 - Add a scheduling feature that user can click on once they've found a doctor they would like to visit 
-
 
 
