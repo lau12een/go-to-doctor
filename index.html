@@ -1,16 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Go To Doctor</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-   <section class="dog"></section>
-   <div id="cat"></div>
-   <section class="mouse"></section>
-   <section class="mouse"></section>
-   <section class="mouse"></section>
+
+    <!--------- INTRODUCTION ------------->
+    <header class="banner-section">
+        <h1 class="heading">
+            The Autism Doctor
+        </h1>
+    </header>
+
+    <!--INTRODUCTION Page -->
+    <main role="main">
+        <header id="title" class="transbox">
+            <h2>Do you need to find a doctor that works well with your child?</h2>
+        </header>
+        <section id='intro-page' class='start-section'> <button class='start-button' id="startSearchButton">Click here to find them!</button>
+
+        </section>
+
+        <!---SEARCH SECTION-->
+
+        <section id="search-page" class="hidden">
+            <form class="search-form">
+                <fieldset>
+                    <div class="search-form-responsive">
+                        <legend class="search-legend">Search parameters</legend>
+                        <label for="search-doctor-symptom">Search by</label>
+                        <select class="search-options">
+                            <option value="doctor">Doctor</option>
+                            <option value="specialty">Specialty</option>
+                        </select>
+                        <input type="text" name="search-doctor-specialty" class="search-doctor-specialty-input" placeholder="Ex. Dr. John Smith, Dentist">
+                        <label for="zip-code">Enter your Zipcode</label>
+                        <input type="number" name="zip-code" class="search-zip-input" required>
+                        <label for="search-distance">Distance (in miles)</label>
+                        <input type="number" name="search-distance" class="search-distance-input" required>
+                        <button type="submit" class="search-btn">Search</button>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
+
 </html>
