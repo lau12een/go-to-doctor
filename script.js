@@ -113,5 +113,5 @@ $('.search-btn').click(function () {
 $('.details-btn').click(function () {
     $('#searchResults').removeClass('hidden');
     $('#intro-page').addClass('hidden');
-    $('.details').removeClass('hidden')
+    $('#details').removeClass('hidden')
 });
