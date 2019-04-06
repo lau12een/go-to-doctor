@@ -30,7 +30,7 @@ Within this page will be a "read more" link where the user can click to get more
 
 ## Designs
 
-![Landing Page](/github-images/landing_page.jpg)
+![Landing Page](/read-me-images/landing_page.png)
 [![Search-page-1.jpg](https://i.postimg.cc/RVNrRLtx/Search-page-1.jpg)](https://postimg.cc/zVZPDWpx)
 
 [![Search-page-2.jpg](https://i.postimg.cc/N0vWQhzQ/Search-page-2.jpg)](https://postimg.cc/Xrx2gPWP)
