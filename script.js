@@ -1,6 +1,6 @@
 'use strict'
 // Shorthand for $( document ).ready()
-$(function() {
+$(function () {
     console.log('App loaded! Waiting for submit!');
     watchForm();
 });
@@ -14,7 +14,7 @@ const mapsAPIKey = 'AIzaSyAbngBkssi-HFTJIK7aheGdySmCyATQpbo';
 /******** function for query parameters*************/
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
-    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
     return queryItems.join('&');
 }
 
@@ -34,23 +34,23 @@ function getDoctorInfo(queryType, query, userCoords, userDistance) {
 
     fetch(url)
         .then(response => {
-        if (response.ok) {
-            return response.json();
-        }
-        throw new Error(response.statusText);
-    })
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
         .then(responseJson => {
-        if (responseJson.data.length > 0) {
-            displayResults(responseJson);
-        } else {
-            $('.searchResults').empty();
-            $('#error-message').text('No results were found');
-        }
-    })
+            if (responseJson.data.length > 0) {
+                displayResults(responseJson);
+            } else {
+                $('.searchResults').empty();
+                $('#error-message').text('No results were found');
+            }
+        })
         .catch(err => {
-        $('.searchResults').empty();
-        $('#error-message').text('No results were found')
-    });
+            $('.searchResults').empty();
+            $('#error-message').text('No results were found')
+        });
 }
 
 
@@ -78,7 +78,6 @@ function getDoctorInfo(queryType, query, userCoords, userDistance) {
 
 
 
-
 // Watch search form for submit, call getDoctorInfo function
 function watchForm() {
     $('form').submit(event => {
@@ -88,7 +87,6 @@ function watchForm() {
         getDoctorInfo(searchText, maxResults);
     });
 }
-
 
 
 
@@ -112,4 +110,8 @@ $('.search-btn').click(function () {
     $('#intro-page').addClass('hidden')
 });
 
-
+$('.details-btn').click(function () {
+    $('#searchResults').removeClass('hidden');
+    $('#intro-page').addClass('hidden');
+    $('.details').removeClass('hidden')
+});
