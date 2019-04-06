@@ -1,3 +1,124 @@
+* {
+    box-sizing: border-box;
+    text-align: center;
+}
+
 .hidden {
     display: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.start-button {
+    cursor: pointer;
+    background-color: rgb(81, 162, 238);
+    font-weight: 700;
+    border: 1px solid black;
+    border-radius: 2px;
+    width: 200px;
+    height: 50px;
+}
+
+#search-page {
+    margin-top: 20px;
+}
+
+form {
+    margin-top: 10px;
+    text-align: center;
+}
+
+fieldset {
+    border: 2px solid black;
+}
+
+.search-btn {
+    cursor: pointer;
+    background-color: rgb(81, 162, 238);
+    font-weight: 700;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+.searchResults {
+    height: 100%;
+}
+
+.doctor-container {
+    margin-bottom: 15px;
+    width: auto;
+    height: auto;
+}
+
+.doctor-container:first-child {
+    padding-top: 15px;
+    width: auto;
+}
+
+.doctor-container:last-child {
+    padding-bottom: 15px;
+    margin-bottom: 0;
+    width: auto;
+}
+
+.doctor-info,
+.contact-info {
+    list-style: none;
+    padding-left: 0;
+    width: auto;
+}
+
+.doctor-info {
+    margin: auto;
+    background-color: #FEFEFE;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 50%;
+    padding-left: 5px;
+    overflow: hidden;
+}
+
+.doctor-img {
+    padding: 15px 0;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.wrapper {
+    float: left;
+    width: 33.33%;
+}
+
+.doctor-card-text {
+    padding-bottom: 5px;
+}
+
+.doctor-card-text:first-child,
+.office-location-title {
+    padding-top: 15px;
+}
+
+.office-location-title {
+    margin: 0;
+}
+
+.doctor-name {
+    color: #3C5AB2;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.doctor-title {
+    color: grey;
+}
+
+.accepts-patients {
+    font-weight: 600;
 }
