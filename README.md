@@ -31,12 +31,9 @@ Within this page will be a "read more" link where the user can click to get more
 ## Designs
 
 ![Landing Page](/read-me-images/landing_page.png)
-[![Search-page-1.jpg](https://i.postimg.cc/RVNrRLtx/Search-page-1.jpg)](https://postimg.cc/zVZPDWpx)
-
-[![Search-page-2.jpg](https://i.postimg.cc/N0vWQhzQ/Search-page-2.jpg)](https://postimg.cc/Xrx2gPWP)
-
-[![Search-page-3.jpg](https://i.postimg.cc/sXw8PMD2/Search-page-3.jpg)](https://postimg.cc/FdkDNsSt)
-
+[![Search-page-1](/read-me-images/Search_page_1.png)
+[![Search-page-2.jpg](/read-me-images/Search_page_2.png)
+[![Search-page-3.jpg](/read-me-images/Search_page_3.png)
 ## Setup/Installation Requirements
 
 - Clone this repository
