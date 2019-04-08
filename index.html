@@ -17,13 +17,14 @@
     </header>
 
     <!--INTRODUCTION Page -->
-    <section id='intro-page' class='start-section'>
-        <header id="title" class="transbox">
-            <h2>Do you need to find a doctor that works well with your child?</h2>
-        </header>
-        <button class='start-button' id="showHiddenSection">Click here to find them!</button>
+    <article id='intro-page' class='start-section'>
 
-    </section>
+        <div class="title-bg">
+            <h2>Do you need to find a doctor that works well with your child?</h2>
+            <button class='start-button' id="showHiddenSection">Click here to find them!</button>
+        </div>
+
+    </article>
 
     <!---SEARCH SECTION-->
 
@@ -54,34 +55,33 @@
         </form>
     </section>
 
-    <section role="region">
-        <div id="searchResults" class="hidden">
-            <div class="doctor-container">
-                <ul class="doctor-info">
-                    <div class="wrapper">
-                        <li class="doctor-card-text doctor-name">docFirstName docLastName<span class="doctor-title">docTitle</span>
-                        </li>
-                        Accepting new patients?
-                    </div>
-                    <div class="wrapper">
-                        <li>
-                            <ul class="contact-info">
-                                <h3 class="office-location-title doctor-card-text">Office Location & Contact Info</h3>
-                                <li class="doctor-card-text">street</li>
-                                <li class="doctor-card-text">city</li>
-                                <li class="doctor-card-text"><span class="capitalize"></span>: phoneNumber</li>
-                            </ul>
-                        </li>
-                    </div>
-                    <div class="wrapper">
-                        <li><img src="(link to image)" class="doctor-img" alt="Image of Dr"></li>
-                    </div>
-                    <button type="submit" class="details-btn">Click for more details</button>
-                </ul>
-            </div>
-    </section>
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
+    <div id="searchResults" class="hidden">
+        <div class="doctor-container">
+            <ul class="doctor-info">
+                <div class="wrapper">
+                    <li class="doctor-card-text doctor-name">docFirstName docLastName<span class="doctor-title">docTitle</span>
+                    </li>
+                    Accepting new patients?
+                </div>
+                <div class="wrapper">
+                    <li>
+                        <ul class="contact-info">
+                            <h3 class="office-location-title doctor-card-text">Office Location & Contact Info</h3>
+                            <li class="doctor-card-text">street</li>
+                            <li class="doctor-card-text">city</li>
+                            <li class="doctor-card-text"><span class="capitalize"></span>: phoneNumber</li>
+                        </ul>
+                    </li>
+                </div>
+                <div class="wrapper">
+                    <li><img src="(link to image)" class="doctor-img" alt="Image of Dr"></li>
+                </div>
+                <button type="submit" class="details-btn">Click for more details</button>
+            </ul>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>
