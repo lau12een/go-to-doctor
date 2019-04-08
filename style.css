@@ -39,7 +39,7 @@ button {
 }
 
 .title-bg {
-    background-color: darkslateblue;
+    background-color: slategray;
     opacity: 0.8;
     margin-left: 20px;
     margin-right: 20px;
@@ -47,6 +47,11 @@ button {
     padding: 20px;
     color: white;
 }
+
+
+
+
+
 
 .hidden {
     display: none;
@@ -118,7 +123,7 @@ button {
 }
 
 .doctor-container:last-child {
-    margin-bottom: 15px;
+    margin-bottom: 0;
 }
 
 .doctor-info,
@@ -180,4 +185,34 @@ button {
 
 .accepts-patients {
     font-weight: 600;
+}
+
+/* Style the button that is used to open and close the collapsible content */
+.collapsible {
+    background-color: #eee;
+    opacity: 0.8;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-top: 0;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active,
+.collapsible:hover {
+    background-color: slategray;
+    opacity: 0.8;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #f1f1f1;
 }
