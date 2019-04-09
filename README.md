@@ -96,6 +96,9 @@ As a user who is color blind, I want to know what fields are required so that I 
 
 As a user who is hearing-impaired, I want a transcript of the spoken audio so that I can have access to all information provided in audio clips.
 
+## User Flow
+![User Flow](/read-me-images/user_flow.png)
+
 ## Designs
 
 ![Landing Page](/read-me-images/landing_page.png)
