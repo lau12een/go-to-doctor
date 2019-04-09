@@ -23,7 +23,6 @@ function formatQueryParams(params) {
 function getDoctorInfo(queryType, query, userCoords, userDistance) {
     const params = {
         user_key: doctorAPIKey,
-        name: queryType === 'doctor' ? query : '',
         query: queryType === 'specialty' ? query : '',
         location: `${userCoords[0]},${userCoords[1]},${userDistance}`
     };
