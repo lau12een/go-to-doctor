@@ -202,6 +202,8 @@ button {
 }
 
 .doctor-title {
+    display: block;
+    text-align: center;
     color: black;
 }
 
@@ -255,6 +257,11 @@ button {
     body {
         color: blue;
     }
+
+    .doctor-title {
+        display: block;
+        text-align: center;
+    }
 }
 
 
@@ -268,6 +275,11 @@ button {
     .wrapper {
         display: block;
         width: 100%;
+    }
+
+    .doctor-title {
+        display: block;
+        text-align: center;
     }
 }
 
