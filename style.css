@@ -216,9 +216,9 @@ button {
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 60%;
+    width: 100%;
     border: none;
-    text-align: left;
+    text-align: center;
     outline: none;
     font-size: 15px;
     margin-top: 0;
@@ -283,6 +283,11 @@ button {
     input {
         display: block;
         width: 100%;
+        text-align: center;
+    }
+
+    .doctor-title {
+        display: block;
         text-align: center;
     }
 }
