@@ -19,7 +19,8 @@ body:after {
     right: 0;
     z-index: -1;
     /* needed to keep in the background */
-    background: url(https://images.unsplash.com/photo-1492546643178-96d64f3fd824?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80) center center;
+    background: url(https://sgmh.org/wp-content/uploads/2017/12/doctor-stethoscope-bg-bw-1.png) center center;
+    /*https://images.unsplash.com/photo-1492546643178-96d64f3fd824?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -41,11 +42,12 @@ button {
 .title-bg {
     background-color: slategray;
     opacity: 0.8;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 5px;
     padding: 20px;
     color: white;
+    width: 60%;
 }
 
 
@@ -65,6 +67,7 @@ section {
     margin-bottom: 15px;
     margin-left: auto;
     margin-right: auto;
+    width: 60%;
     background-color: slategray;
     opacity: 0.8;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -75,15 +78,6 @@ section {
 
 .start-section {}
 
-.start-button {
-    cursor: pointer;
-    background-color: lightseagreen;
-    font-weight: 700;
-    border: 1px solid black;
-    border-radius: 2px;
-    width: 200px;
-    height: 50px;
-}
 
 #search-page {
     margin-top: 20px;
@@ -94,29 +88,54 @@ form {
     text-align: center;
 }
 
+label,
+input {
+    display: inline-block;
+    width: 49%;
+    text-align: left;
+    vertical-align: top;
+}
+
 .form-row {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.form-row-button {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
 }
 
 fieldset {
     border: 0;
 }
 
+
 button {
+    padding-bottom: 10px;
+    padding-top: 10px;
     cursor: pointer;
     background-color: lightseagreen;
     font-weight: 700;
     border: 1px solid black;
     border-radius: 2px;
+    /* width: 200px; */
+    /* height: 25px; */
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .searchResults {
     height: 100%;
 }
-
-.doctor-container {}
 
 .doctor-container:first-child {
     margin-top: 15px;
@@ -140,6 +159,9 @@ button {
     padding-left: 5px;
     padding-right: 5px;
     color: white;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .doctor-img {
@@ -194,7 +216,7 @@ button {
     color: #444;
     cursor: pointer;
     padding: 18px;
-    width: 100%;
+    width: 60%;
     border: none;
     text-align: left;
     outline: none;
@@ -214,5 +236,62 @@ button {
     padding: 0 18px;
     display: none;
     overflow: hidden;
-    background-color: #f1f1f1;
+    border-top: 1px solid black;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/*******MEDIA QUERY ******/
+/*ipad lanscape / small laptop*/
+
+@media only screen and (max-width: 1024px) {
+
+    /* acting like an IF statement, the media query is a set of conditions in which the containing css will be applied
+    for example the statament above says: IF the media on which this CSS is going to used is SCREEN (Mobiles, Tables, Laptops, Desktops or Projectors) and the maximum resolution of that device is 1024px, THEN apply the body color blue for all the text
+    */
+    body {
+        color: blue;
+    }
+}
+
+
+/*ipad potrait*/
+
+@media only screen and (max-width: 768px) {
+    body {
+        color: red;
+    }
+
+    .wrapper {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+/*iPhone landscape*/
+
+@media only screen and (max-width: 480px) {
+    body {
+        color: green;
+    }
+
+    label,
+    input {
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+/*iPhone portrait*/
+
+@media only screen and (max-width: 320px) {
+    body {
+        color: purple;
+    }
 }
