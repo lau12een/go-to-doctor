@@ -1,12 +1,14 @@
+//https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%2C-73.985130%2C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
+//https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%252C-73.985130%252C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 'use strict'
 // Shorthand for $( document ).ready()
 $(function () {
-    console.log('App loaded! Waiting for submit!');
-    watchForm();
+    //  console.log('App loaded! Waiting for submit!');
+    //    watchForm();
 });
 
 /************ Contains info to fetch info*********/
-const doctorBaseUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?limit=20&';
+const doctorBaseUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
 const doctorAPIKey = 'bb7ff073337b3fe70c0afe5db792a84a';
 const mapsBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
 const mapsAPIKey = 'AIzaSyAbngBkssi-HFTJIK7aheGdySmCyATQpbo';
@@ -20,17 +22,19 @@ function formatQueryParams(params) {
 
 /******Fetch information, if there's an error display a message**************************/
 
-function getDoctorInfo(queryType, query, userCoords, userDistance) {
+function getDoctorInfo(specialty, zip, radius) {
     const params = {
+        specialty_uid: specialty,
+        location: '40.758896%2C-73.985130%2C50',
+        skip: 0,
+        limit: 10,
         user_key: doctorAPIKey,
-        query: queryType === 'specialty' ? query : '',
-        location: `${userCoords[0]},${userCoords[1]},${userDistance}`
     };
     //Setting up parameters*************/
 
     const queryString = formatQueryParams(params);
     const url = `${doctorBaseUrl}${queryString}`;
-
+    console.log(url);
     fetch(url)
         .then(response => {
             if (response.ok) {
@@ -39,8 +43,11 @@ function getDoctorInfo(queryType, query, userCoords, userDistance) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
+            console.log(responseJson);
             if (responseJson.data.length > 0) {
                 displayResults(responseJson);
+                $('#searchResults').removeClass('hidden');
+                $('#intro-page').addClass('hidden')
             } else {
                 $('.searchResults').empty();
                 $('#error-message').text('No results were found');
@@ -77,15 +84,16 @@ function getDoctorInfo(queryType, query, userCoords, userDistance) {
 
 
 
-// Watch search form for submit, call getDoctorInfo function
-function watchForm() {
-    $('form').submit(event => {
-        event.preventDefault();
-        const searchText = $('#search-text').val();
-        const maxResults = $('#max-results').val() - 1;
-        getDoctorInfo(searchText, maxResults);
-    });
-}
+/*--- When "Find my doctor! " button is clicked , show the search results---*/
+
+$('form').submit(event => {
+    event.preventDefault();
+    const specialty = $('.search-doctor-specialty-input').val();
+    const zip = $('.search-zip-input').val();
+    const radius = $('.search-distance-input').val();
+    console.log(specialty, zip, radius);
+    getDoctorInfo(specialty, zip, radius);
+});
 
 
 
@@ -103,11 +111,8 @@ $('#showHiddenSection').click(function () {
     $('#intro-page').addClass('hidden')
 });
 
-/*--- When "Find my doctor! " button is clicked , show the search results---*/
-$('.search-btn').click(function () {
-    $('#searchResults').removeClass('hidden');
-    $('#intro-page').addClass('hidden')
-});
+
+
 
 $('.details-btn').click(function () {
     $('#searchResults').removeClass('hidden');
