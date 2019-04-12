@@ -1,5 +1,7 @@
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%2C-73.985130%2C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%252C-73.985130%252C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
+// issue with above link is that "52" is added into the lat and long, but do not know how to get it out or why it is appearig
+
 'use strict'
 // Shorthand for $( document ).ready()
 $(function () {
@@ -13,12 +15,25 @@ const doctorAPIKey = 'bb7ff073337b3fe70c0afe5db792a84a';
 const mapsBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
 const mapsAPIKey = 'AIzaSyAbngBkssi-HFTJIK7aheGdySmCyATQpbo';
 
+/*******Need Function to convert location entered in search to lattitude and longitude, since lat & long are required parameters******/
+
+
+
+    //function conversion(location, dist){
+    // Create URL for geocoding a location
+
+
+
+
+
+
 /******** function for query parameters*************/
-function formatQueryParams(params) {
-    const queryItems = Object.keys(params)
-        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
-    return queryItems.join('&');
-}
+
+
+
+
+    //function formatQueryParams(params)
+
 
 /******Fetch information, if there's an error display a message**************************/
 
