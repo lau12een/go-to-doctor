@@ -1,4 +1,5 @@
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%2C-73.985130%2C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
+//https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%2C-73.985130%2C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%252C-73.985130%252C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 // issue with above link is that "52" is added into the lat and long, but do not know how to get it out or why it is appearig
 
@@ -19,8 +20,8 @@ const mapsAPIKey = 'AIzaSyAbngBkssi-HFTJIK7aheGdySmCyATQpbo';
 
 
 
-    //function conversion(location, dist){
-    // Create URL for geocoding a location
+//function conversion(location, dist){
+// Create URL for geocoding a location
 
 
 
@@ -32,15 +33,19 @@ const mapsAPIKey = 'AIzaSyAbngBkssi-HFTJIK7aheGdySmCyATQpbo';
 
 
 
-    //function formatQueryParams(params)
-
+//function formatQueryParams(params)
+function formatQueryParams(params) {
+    const queryItems = Object.keys(params)
+        .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`);
+    return queryItems.join('&');
+}
 
 /******Fetch information, if there's an error display a message**************************/
 
 function getDoctorInfo(specialty, zip, radius) {
     const params = {
         specialty_uid: specialty,
-        location: '40.758896%2C-73.985130%2C50',
+        location: '40.758896,-73.985130,50',
         skip: 0,
         limit: 10,
         user_key: doctorAPIKey,
@@ -58,7 +63,6 @@ function getDoctorInfo(specialty, zip, radius) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
-            console.log(responseJson);
             if (responseJson.data.length > 0) {
                 displayResults(responseJson);
                 $('#searchResults').removeClass('hidden');
@@ -90,7 +94,52 @@ function getDoctorInfo(specialty, zip, radius) {
 
 
 /**********Function to display results ********/
+function displayResults(responseJson) {
+    console.log(responseJson.data);
+    let buildTheHtmlOutput = "";
+    for (let i = 0; i < responseJson.data.length; i++) {
+        console.log(responseJson.data[i]);
+        buildTheHtmlOutput += `
+<div class="doctor-container">
+<ul class="doctor-info">
 
+<li class="doctor-card-text doctor-name wrapper">
+<span class="docFirstName">${responseJson.data[i].profile.first_name}</span>
+<span class="docLastName">${responseJson.data[i].profile.last_name}</span>
+<span class="doctor-title">docTitle</span>
+<span class="docStatus">docStatus</span>
+</li>
+
+
+<li class="wrapper">
+<ul class="contact-info">
+<li class="office-location-title doctor-card-text">Office Location & Contact Info</li>
+<li class="doctorStreet">street</li>
+<li class="doctorCity">city</li>
+<li class="doctorNumber"> phoneNumber</li>
+</ul>
+</li>
+
+
+<li class="wrapper">
+<img src="${responseJson.data[i].profile.image_url}" class="doctor-img" alt="Image of Dr">
+</li>
+
+<li class="wrapper">
+<button class="collapsible">Click for more details</button>
+<div class="content">
+<p>details about doctor</p>
+</div>
+</li>
+</ul>
+
+
+</div>
+`;
+    }
+
+    $("#searchResults").html(buildTheHtmlOutput);
+}
 
 
 
