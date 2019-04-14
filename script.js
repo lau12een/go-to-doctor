@@ -17,11 +17,35 @@ const mapsBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
 const mapsAPIKey = 'AIzaSyAbngBkssi-HFTJIK7aheGdySmCyATQpbo';
 
 /*******Need Function to convert location entered in search to lattitude and longitude, since lat & long are required parameters******/
-
-
-
 //function conversion(location, dist){
-// Create URL for geocoding a location
+function getLocation(userZip, queryType, query, userDistance) {
+    const url = `${mapsBaseUrl}key=${mapsAPIKey}&address=${userZip}`;
+
+    return fetch(url)
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error(response.statusText);
+        })
+        .then(responseJson => {
+            let userCoords = getCoords(responseJson);
+            getDoctorInfo(queryType, query, userCoords, userDistance);
+        })
+        .catch(err => {
+            $('#error-message').text(`Something went wrong: ${err.message}`)
+        });
+}
+
+// Grabs lat and long values from response Json
+function getCoords(response) {
+    let lat = response.results[0].geometry.location.lat;
+    let long = response.results[0].geometry.location.lng;
+    let coords = [lat, long];
+    return coords;
+}
+
+
 
 
 
@@ -97,6 +121,7 @@ function getDoctorInfo(specialty, zip, radius) {
 function displayResults(responseJson) {
     console.log(responseJson.data);
     let buildTheHtmlOutput = "";
+
     for (let i = 0; i < responseJson.data.length; i++) {
         console.log(responseJson.data[i]);
         buildTheHtmlOutput += `
@@ -106,34 +131,27 @@ function displayResults(responseJson) {
 <li class="doctor-card-text doctor-name wrapper">
 <span class="docFirstName">${responseJson.data[i].profile.first_name}</span>
 <span class="docLastName">${responseJson.data[i].profile.last_name}</span>
-<span class="doctor-title">docTitle</span>
-<span class="docStatus">docStatus</span>
+<span class="doctor-title">${responseJson.data[i].profile.title}</span>
+<span class="docStatus">Accepts new patients? ${responseJson.data[i].practices[0].accepts_new_patients}</span>
 </li>
-
-
 <li class="wrapper">
 <ul class="contact-info">
-<li class="office-location-title doctor-card-text">Office Location & Contact Info</li>
-<li class="doctorStreet">street</li>
-<li class="doctorCity">city</li>
-<li class="doctorNumber"> phoneNumber</li>
+<li class="office-location-title doctor-card-text">${responseJson.data[i].practices[0].name}</li>
+<li class="doctorStreet">${responseJson.data[i].practices[0].visit_address.street}</li>
+<li class="doctorCity">${responseJson.data[i].practices[0].visit_address.city}</li>
+<li class="doctorNumber">${responseJson.data[i].practices[0].phones[0].number}</li>
 </ul>
 </li>
-
-
 <li class="wrapper">
 <img src="${responseJson.data[i].profile.image_url}" class="doctor-img" alt="Image of Dr">
 </li>
-
 <li class="wrapper">
 <button class="collapsible">Click for more details</button>
 <div class="content">
-<p>details about doctor</p>
+<p>${responseJson.data[i].profile.bio}</p>
 </div>
 </li>
 </ul>
-
-
 </div>
 `;
     }
