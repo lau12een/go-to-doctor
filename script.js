@@ -10,7 +10,7 @@ $(function () {
 const doctorBaseUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
 const doctorAPIKey = 'bb7ff073337b3fe70c0afe5db792a84a';
 const mapsBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
-const mapsAPIKey = 'AIzaSyAbngBkssi-HFTJIK7aheGdySmCyATQpbo';
+const mapsAPIKey = 'AIzaSyBon9REOG-6a0s55H6d66FmHKNLQXJd-K0';
 
 
 /******** function for query parameters*************/
