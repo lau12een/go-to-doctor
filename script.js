@@ -2,7 +2,9 @@
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=9%2C5%2C10&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 'use strict'
 
-$(function () {});
+$(function () {
+    $('.content').hide();
+});
 
 /************ Contains info to fetch info*********/
 const doctorBaseUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
@@ -63,12 +65,12 @@ function getDoctorInfo(specialty, zip, radius) {
 }
 
 // Grabs lat and long values from response Json
-function getLatLong(response) {
-    let lat = response.results[0].geometry.location.lat;
-    let long = response.results[0].geometry.location.lng;
-    let coords = [lat, long];
-    return coords;
-}
+//function getLatLong(response) {
+//    let lat = response.results[0].geometry.location.lat;
+//    let long = response.results[0].geometry.location.lng;
+//    let coords = [lat, long];
+//    return coords;
+//}
 /*******Need Function to convert location entered in search to lattitude and longitude, since lat & long are required parameters******/
 
 //function for converting to lat and long from zipcode
@@ -82,6 +84,7 @@ function getLatLong(specialty, zip, radius) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
+            console.log(responseJson);
             let latLong = getLatLong(responseJson);
             getDoctorInfo(specialty, zip, radius);
         })
@@ -100,6 +103,10 @@ function displayResults(responseJson) {
 
     for (let i = 0; i < responseJson.data.length; i++) {
         console.log(responseJson.data[i]);
+        let status = "Not accepting patients";
+        if (responseJson.data[i].practices[0].accepts_new_patients == true) {
+            status = "Accepting patients";
+        }
         buildTheHtmlOutput += `
 <div class="doctor-container">
 <ul class="doctor-info">
@@ -108,7 +115,7 @@ function displayResults(responseJson) {
         <span class="docFirstName">${responseJson.data[i].profile.first_name}</span>
         <span class="docLastName">${responseJson.data[i].profile.last_name}</span>
         <span class="doctor-title">${responseJson.data[i].profile.title}</span>
-        <span class="docStatus">Accepts new patients? ${responseJson.data[i].practices[0].accepts_new_patients}</span>
+        <span class="docStatus"> ${status}</span>
     </li>
     <li class="wrapper">
 
@@ -123,7 +130,7 @@ function displayResults(responseJson) {
         <img src="${responseJson.data[i].profile.image_url}" class="doctor-img" alt="Image of Dr">
     </li>
 
-
+    <li>
     <button class="collapsible">Click for more details</button>
     <div class="content">
         <p>${responseJson.data[i].profile.bio}</p>
@@ -135,6 +142,7 @@ function displayResults(responseJson) {
     }
 
     $("#searchResults").html(buildTheHtmlOutput);
+    $('.content').hide();
 }
 
 
@@ -152,7 +160,7 @@ $('form').submit(event => {
     const zip = $('.search-zip-input').val();
     const radius = $('.search-distance-input').val();
     console.log(specialty, zip, radius);
-    getDoctorInfo(specialty, zip, radius);
+    getLatLong(specialty, zip, radius);
 });
 
 
@@ -170,35 +178,11 @@ $('.details-btn').click(function () {
     $('#intro-page').addClass('hidden');
     $('#details').removeClass('hidden')
 });
-
-
 /*--when " click for more details" is clicked, show details --*/
-let coll = document.getElementsByClassName("collapsible");
-let i;
-
-for (i = 0; i < coll.length; i++) {
-    coll[i].addEventListener("click", function () {
-        this.classList.toggle("active");
-        var content = this.nextElementSibling;
-        if (content.style.display === "block") {
-            content.style.display = "none";
-        } else {
-            content.style.display = "block";
-        }
-    });
-}
-
-//const det = document.getElementsByClassName("details-btn");
-//const i;
-
-//for (i = 0; i < det.length; i++) {
-//  det[i].addEventListener("click", function () {
-//    this.classList.toggle("active");
-//  const details = this.nextElementSibling;
-//if (content.style.display === "block") {
-//  content.style.display = "none";
-//} else {
-//  content.style.display = "block";
-//}
-//});
-//}
+// delegate collapsible
+$(document).on('click', '.collapsible', function (event) {
+    event.preventDefault();
+    $('.content').removeClass('active');
+    $(this).parent().find('.content').addClass('active');
+    $(this).parent().find('.content').show();
+});

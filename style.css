@@ -236,7 +236,6 @@ button {
 /* Style the collapsible content. Note: hidden by default */
 .content {
     padding: 0 18px;
-    display: none;
     overflow: hidden;
     border-top: 1px solid black;
     width: 100%;
