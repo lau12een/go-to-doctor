@@ -10,7 +10,7 @@ $(function () {
 const doctorBaseUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
 const doctorAPIKey = 'bb7ff073337b3fe70c0afe5db792a84a';
 const mapsBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
-const mapsAPIKey = 'AIzaSyBon9REOG-6a0s55H6d66FmHKNLQXJd-K0';
+const mapsAPIKey = 'AIzaSyD10x-d05tqzj9dP2njg1MtT5s8BULImuY';
 
 
 /******** function for query parameters*************/
@@ -30,8 +30,8 @@ function formatQueryParams(params) {
 function getDoctorInfo(specialty, zip, radius) {
     const params = {
         specialty_uid: specialty,
-        location: //`${zip[0]},${zip[1]},${radius}`,
-            '40.758896,-73.985130,50',
+        location: `${zip[0]},${zip[1]},${radius}`,
+        //'40.758896,-73.985130,50',
         skip: 0,
         limit: 10,
         user_key: doctorAPIKey,
@@ -65,12 +65,12 @@ function getDoctorInfo(specialty, zip, radius) {
 }
 
 // Grabs lat and long values from response Json
-//function getLatLong(response) {
-//    let lat = response.results[0].geometry.location.lat;
-//    let long = response.results[0].geometry.location.lng;
-//    let coords = [lat, long];
-//    return coords;
-//}
+function getLatLong(response) {
+    let lat = response.results[0].geometry.location.lat;
+    let long = response.results[0].geometry.location.lng;
+    let coords = [lat, long];
+    return coords;
+}
 /*******Need Function to convert location entered in search to lattitude and longitude, since lat & long are required parameters******/
 
 //function for converting to lat and long from zipcode
@@ -84,8 +84,8 @@ function getLatLong(specialty, zip, radius) {
             throw new Error(response.statusText);
         })
         .then(responseJson => {
+            let zip = getCoords(responseJson);
             console.log(responseJson);
-            let latLong = getLatLong(responseJson);
             getDoctorInfo(specialty, zip, radius);
         })
         .catch(err => {
