@@ -243,6 +243,12 @@ button {
     margin-right: auto;
 }
 
+#error-message {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 38px;
+}
+
 
 
 /*******MEDIA QUERY ******/

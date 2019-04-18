@@ -1,5 +1,6 @@
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%2C-73.985130%2C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=9%2C5%2C10&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
+//https://api.betterdoctor.com/2016-03-01/doctors?query=autism&specialty_uid=pediatrician&location=ca-san-francisco&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 'use strict'
 
 $(function () {
@@ -27,13 +28,15 @@ function formatQueryParams(params) {
 
 /******Fetch information, if there's an error display a message**************************/
 
-function getDoctorInfo(specialty, zip, radius) {
+function getDoctorInfo(query, specialty, slug, radius) {
     const params = {
+        query: query,
         specialty_uid: specialty,
-        location: `${zip[0]},${zip[1]},${radius}`,
-        //'40.758896,-73.985130,50',
+        location: slug,
+        //`${zip[0]},${zip[1]},${radius}`,
+        //   'ca-san-jose',
         skip: 0,
-        limit: 10,
+        limit: radius,
         user_key: doctorAPIKey,
     };
     //Setting up parameters*************/
@@ -65,42 +68,42 @@ function getDoctorInfo(specialty, zip, radius) {
 }
 
 // Grabs lat and long values from response Json
-function getLatLong(response) {
-    let lat = response.results[0].geometry.location.lat;
-    let long = response.results[0].geometry.location.lng;
-    let coords = [lat, long];
-    return coords;
-}
+//function getLatLong(response) {
+//    let lat = response.results[0].geometry.location.lat;
+//    let long = response.results[0].geometry.location.lng;
+//    let coords = [lat, long];
+//    return coords;
+//}
 /*******Need Function to convert location entered in search to lattitude and longitude, since lat & long are required parameters******/
 
-//function for converting to lat and long from zipcode
-function getLatLong(specialty, zip, radius) {
-    const url = `${mapsBaseUrl}key=${mapsAPIKey}&address=${zip}`;
-    return fetch(url)
-        .then(response => {
-            if (response.ok) {
-                return response.json();
-            }
-            throw new Error(response.statusText);
-        })
-        .then(responseJson => {
-            let zip = getCoords(responseJson);
-            console.log(responseJson);
-            getDoctorInfo(specialty, zip, radius);
-        })
-        .catch(err => {
-            $('#error-message').text(`Something went wrong: ${err.message}`)
-        });
-}
+////function for converting to lat and long from zipcode
+//function getLatLong(specialty, zip, radius) {
+//    const url = `${mapsBaseUrl}key=${mapsAPIKey}&address=${zip}`;
+//    return fetch(url)
+//        .then(response => {
+//            if (response.ok) {
+//                return response.json();
+//            }
+//            throw new Error(response.statusText);
+//        })
+//        .then(responseJson => {
+//            console.log(responseJson);
+//            let latLong = getLatLong(responseJson);
+//            getDoctorInfo(specialty, zip, radius);
+//        })
+//        .catch(err => {
+//            $('#error-message').text(`Something went wrong: ${err.message}`)
+//        });
+//}
+//
+//
+//
 
-
-
-
-/**********Function to display results ********/
+/**********Function to display results *******/
 function displayResults(responseJson) {
+    $('#error-message').empty();
     console.log(responseJson.data);
     let buildTheHtmlOutput = "";
-
     for (let i = 0; i < responseJson.data.length; i++) {
         console.log(responseJson.data[i]);
         let status = "Not accepting patients";
@@ -110,34 +113,32 @@ function displayResults(responseJson) {
         buildTheHtmlOutput += `
 <div class="doctor-container">
 <ul class="doctor-info">
-
-    <li class="doctor-card-text doctor-name wrapper">
-        <span class="docFirstName">${responseJson.data[i].profile.first_name}</span>
-        <span class="docLastName">${responseJson.data[i].profile.last_name}</span>
-        <span class="doctor-title">${responseJson.data[i].profile.title}</span>
-        <span class="docStatus"> ${status}</span>
-    </li>
-    <li class="wrapper">
-
-    <ul class="contact-info">
-        <li class="office-location-title doctor-card-text">${responseJson.data[i].practices[0].name}</li>
-        <li class="doctorStreet">${responseJson.data[i].practices[0].visit_address.street}</li>
-        <li class="doctorCity">${responseJson.data[i].practices[0].visit_address.city}</li>
-        <li class="doctorNumber">${responseJson.data[i].practices[0].phones[0].number}</li>
-    </ul>
-    </li>
-    <li class="wrapper">
-        <img src="${responseJson.data[i].profile.image_url}" class="doctor-img" alt="Image of Dr">
-    </li>
-
-    <li>
-    <button class="collapsible">Click for more details</button>
-    <div class="content">
-        <p>${responseJson.data[i].profile.bio}</p>
-    </div>
-    </li>
-    </ul>
-    </div>
+<li class="doctor-card-text doctor-name wrapper">
+<span class="docFirstName">${responseJson.data[i].profile.first_name}</span>
+<span class="docLastName">${responseJson.data[i].profile.last_name}</span>
+<span class="doctor-title">${responseJson.data[i].profile.title}</span>
+<span class="docStatus"> ${status}</span>
+</li>
+<li class="wrapper">
+<ul class="contact-info">
+<li class="office-location-title doctor-card-text">${responseJson.data[i].practices[0].name}</li>
+<li class="doctorStreet">${responseJson.data[i].practices[0].visit_address.street}</li>
+<li class="doctorCity">${responseJson.data[i].practices[0].visit_address.city}</li>
+<li class="doctorNumber">${responseJson.data[i].practices[0].phones[0].number}</li>
+</ul>
+</li>
+<li class="wrapper">
+<img src="${responseJson.data[i].profile.image_url}" class="doctor-img" alt="Image of Dr">
+</li>
+<li>
+<button class="collapsible">Click for more details</button>
+<div class="content">
+<p>${responseJson.data[i].profile.bio}</p>
+</div>
+</li>
+</ul>
+</div>
+<div id="error-message" style></div>
 `;
     }
 
@@ -146,23 +147,25 @@ function displayResults(responseJson) {
 }
 
 
-
-
-
-
-
-
 /*--- When "Find my doctor! " button is clicked , show the search results---*/
 
 $('form').submit(event => {
     event.preventDefault();
+    const query = $('.search-diagnosis-input').val();
     const specialty = $('.search-doctor-specialty-input').val();
-    const zip = $('.search-zip-input').val();
+    const slug = $('.search-state-city').val();
     const radius = $('.search-distance-input').val();
-    console.log(specialty, zip, radius);
-    getLatLong(specialty, zip, radius);
+    console.log(query, specialty, slug, radius);
+    getDoctorInfo(query, specialty, slug, radius);
 });
-
+/*--- When there are no results enter error message ---*/
+//$('.search-btn').on('keyup', function (event) {
+//    if ($('.doctor-info').children().length === 0) {
+//        $('.not-found').css('display', 'block');
+//    } else {
+//        $('.not-found').css('display', 'none');
+//    }
+//});
 
 
 /*--- When "find doctor " button is clicked , show the search page ---*/
