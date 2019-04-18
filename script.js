@@ -1,3 +1,4 @@
+//Issue Error Message not showing when there are no results
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%2C-73.985130%2C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=9%2C5%2C10&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 //https://api.betterdoctor.com/2016-03-01/doctors?query=autism&specialty_uid=pediatrician&location=ca-san-francisco&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
@@ -11,7 +12,7 @@ $(function () {
 const doctorBaseUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
 const doctorAPIKey = 'bb7ff073337b3fe70c0afe5db792a84a';
 const mapsBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
-const mapsAPIKey = 'AIzaSyD10x-d05tqzj9dP2njg1MtT5s8BULImuY';
+const mapsAPIKey = 'mapsAPIkey';
 
 
 /******** function for query parameters*************/
@@ -57,13 +58,13 @@ function getDoctorInfo(query, specialty, slug, radius) {
                 $('#searchResults').removeClass('hidden');
                 $('#intro-page').addClass('hidden')
             } else {
-                $('.searchResults').empty();
-                $('#error-message').text('No results were found');
+                $('#searchResults').empty();
+                $('#error-message').text(`No results found`);
             }
         })
         .catch(err => {
-            $('.searchResults').empty();
-            $('#error-message').text('No results were found')
+            $('#searchResults').empty();
+            $('#error-message').text(`No results found: ${err.message}`);
         });
 }
 
@@ -92,16 +93,15 @@ function getDoctorInfo(query, specialty, slug, radius) {
 //            getDoctorInfo(specialty, zip, radius);
 //        })
 //        .catch(err => {
-//            $('#error-message').text(`Something went wrong: ${err.message}`)
-//        });
+//            $('#error-message').text(`Something went wrong: ${err.message}`)//        });
 //}
-//
-//
-//
+
 
 /**********Function to display results *******/
 function displayResults(responseJson) {
-    $('#error-message').empty();
+    // $('#error-message').empty();
+    //$('.doctor-info').empty();
+    // Clears previous results
     console.log(responseJson.data);
     let buildTheHtmlOutput = "";
     for (let i = 0; i < responseJson.data.length; i++) {
@@ -138,7 +138,7 @@ function displayResults(responseJson) {
 </li>
 </ul>
 </div>
-<div id="error-message" style></div>
+
 `;
     }
 
@@ -158,6 +158,15 @@ $('form').submit(event => {
     console.log(query, specialty, slug, radius);
     getDoctorInfo(query, specialty, slug, radius);
 });
+
+
+/*------ when "Find my doctor!" is clicked , reload search resolts
+
+$('#something').click(function() {
+    location.reload();
+});
+
+
 /*--- When there are no results enter error message ---*/
 //$('.search-btn').on('keyup', function (event) {
 //    if ($('.doctor-info').children().length === 0) {
