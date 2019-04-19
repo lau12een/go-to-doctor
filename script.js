@@ -1,4 +1,9 @@
 //Issue Error Message not showing when there are no results
+//Would like to make the location parameter more loose . right now its requiring all lower-case and hyphens in between
+//Would like to have a + and - sign to expand and collapse details
+//on click ( if there is details) the + sign turns into a "-" when the minus sign is clicked
+//the plus sign appears and the content is hidden
+
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%2C-73.985130%2C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 //https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=9%2C5%2C10&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 //https://api.betterdoctor.com/2016-03-01/doctors?query=autism&specialty_uid=pediatrician&location=ca-san-francisco&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
@@ -131,7 +136,7 @@ function displayResults(responseJson) {
 <img src="${responseJson.data[i].profile.image_url}" class="doctor-img" alt="Image of Dr">
 </li>
 <li>
-<button class="collapsible">Click for more details</button>
+<button class="collapsible"><img class="plus" src="http://www3.telus.net/jianlu58/white_plus.gif" /img>Click for more details</button>
 <div class="content">
 <p>${responseJson.data[i].profile.bio}</p>
 </div>
@@ -198,3 +203,17 @@ $(document).on('click', '.collapsible', function (event) {
     $(this).parent().find('.content').addClass('active');
     $(this).parent().find('.content').show();
 });
+
+//$(document).on('click', '.collapsible', function (event) {
+//            event.preventDefault();
+//            //details expand and collapse
+//            $(".content").hide();
+//            $('.collapsible').click(function)() {
+//                if ($(this).next('.content').css("display") == "none") {
+//                    $(this).next('.content').show();
+//                    $(this).find("img").attr("src", "http://www3.telus.net/jianlu58/white_minus.gif");
+//                } else {
+//                    $(this).next('.content').hide();
+//                    $(this).find("img").attr("src", "http://www3.telus.net/jianlu58/white_plus.gif");
+//                }
+//            });
