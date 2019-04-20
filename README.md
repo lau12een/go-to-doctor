@@ -147,6 +147,8 @@ This app is built to be responsive to smaller screen sizes using a flex-box and 
 
 ## Development Road Map
 Features for future iterations include:
+- Add drop down menus for State and city instead to ease search experience
+-create a button to close the details as well
 - Add ability for parents to chat with a live person
 - Add favorites feature where they can mark doctors they have visited and would like to recommend
 - Add ratings and review feature , so they can review and rate their experience with a doctor
