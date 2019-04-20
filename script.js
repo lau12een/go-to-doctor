@@ -1,4 +1,3 @@
-//Issue Error Message not showing when there are no results
 //Would like to make the location parameter more loose . right now its requiring all lower-case and hyphens in between
 //Would like to have a + and - sign to expand and collapse details
 //on click ( if there is details) the + sign turns into a "-" when the minus sign is clicked
@@ -11,13 +10,15 @@
 
 $(function () {
     $('.content').hide();
+    $("#error-message").fadeIn();
+    $("#error-message").fadeOut(1000);
 });
 
 /************ Contains info to fetch info*********/
 const doctorBaseUrl = 'https://api.betterdoctor.com/2016-03-01/doctors?';
 const doctorAPIKey = 'bb7ff073337b3fe70c0afe5db792a84a';
-const mapsBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
-const mapsAPIKey = 'mapsAPIkey';
+//const mapsBaseUrl = 'https://maps.googleapis.com/maps/api/geocode/json?';
+//const mapsAPIKey = 'mapsAPIkey';
 
 
 /******** function for query parameters*************/
@@ -65,11 +66,16 @@ function getDoctorInfo(query, specialty, slug, radius) {
             } else {
                 $('#searchResults').empty();
                 $('#error-message').text(`No results found`);
+                $("#error-message").fadeIn();
+                $("#error-message").fadeOut(10000);
             }
         })
+        // happens when there is an error with the server
         .catch(err => {
             $('#searchResults').empty();
             $('#error-message').text(`No results found: ${err.message}`);
+            $("#error-message").fadeIn();
+            $("#error-message").fadeOut(10000);
         });
 }
 
@@ -136,7 +142,7 @@ function displayResults(responseJson) {
 <img src="${responseJson.data[i].profile.image_url}" class="doctor-img" alt="Image of Dr">
 </li>
 <li>
-<button class="collapsible"><img class="plus" src="http://www3.telus.net/jianlu58/white_plus.gif" /img>Click for more details</button>
+<button class="collapsible">Click for more details</button>
 <div class="content">
 <p>${responseJson.data[i].profile.bio}</p>
 </div>

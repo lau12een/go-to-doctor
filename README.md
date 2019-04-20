@@ -8,7 +8,10 @@ https://lau12een.github.io/go-to-doctor-api-capstone/
 
 ## Site Map: MVP
 
-( insert designs here )
+![Landing Page](/read-me-images/landing_page.png)
+![Search-page-1](/read-me-images/Search_page_1.png)
+![Search-page-2.jpg](/read-me-images/Search_page_2.png)
+![Search-page-3.jpg](/read-me-images/Search_page_3.png)
 
 ## User Stories:
 
@@ -101,10 +104,10 @@ As a user who is hearing-impaired, I want a transcript of the spoken audio so th
 
 ## Designs
 
-![Landing Page](/read-me-images/landing_page.png)
-![Search-page-1](/read-me-images/Search_page_1.png)
-![Search-page-2.jpg](/read-me-images/Search_page_2.png)
-![Search-page-3.jpg](/read-me-images/Search_page_3.png)
+![Landing Page](/website-images/final_landing_page.png)
+![Search-page-1](/website-images/live_search_page_1.png)
+![Search-page-2.jpg](/website-images/live_search_page_2.png)
+![Search-page-3.jpg](/website-images/live_search_page_3.png)
 ## Setup/Installation Requirements
 
 - Clone this repository

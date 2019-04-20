@@ -42,11 +42,11 @@
                     </div>
                     <div class="form-row">
                         <label for="state-city">Enter your state abbreviation and city with hyphens in between words, must be all lowercase </label>
-                        <input type="text" name="state-city" class="search-state-city" placeholder="e.g. ca-san-jose" required>
+                        <input type="text" name="state-city" class="search-state-city" placeholder="e.g. ca-san-jose" value="ca-san-jose" required>
                     </div>
                     <div class="form-row">
                         <label for="search-distance">Distance (in miles)</label>
-                        <input type="number" name="search-distance" class="search-distance-input" placeholder="10" required>
+                        <input type="number" name="search-distance" class="search-distance-input" placeholder="10" value="10" required>
                     </div>
 
                     <div class="form-row-button">
@@ -57,9 +57,9 @@
             </fieldset>
         </form>
     </section>
-
+    <div id="error-message">Loading...</div>
     <div id="searchResults" class="hidden">
-        <div id="error-message">No Results Found</div>
+
         <!--
         <div class="doctor-container">
             <ul class="doctor-info">
