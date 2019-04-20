@@ -1,6 +1,6 @@
-# Go To Doctor App
+#  The Right Doctor App
 
-The go to doctor app is designed and created for parents/caregivers raising individuals with autism and Adults diagnosed with autism .
+The Right Doctor app is designed and created for parents/caregivers raising individuals with autism and Adults diagnosed with autism or other related disorders.
 
 ### Working Prototype
 
@@ -106,8 +106,9 @@ As a user who is hearing-impaired, I want a transcript of the spoken audio so th
 
 ![Landing Page](/website-images/final_landing_page.png)
 ![Search-page-1](/website-images/live_search_page_1.png)
-![Search-page-2.jpg](/website-images/live_search_page_2.png)
-![Search-page-3.jpg](/website-images/live_search_page_3.png)
+![Search-page-2](/website-images/live_search_page_2.png)
+![Search-page-3](/website-images/live_search_page_3.png)
+
 ## Setup/Installation Requirements
 
 - Clone this repository
