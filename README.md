@@ -115,9 +115,6 @@ As a user who is hearing-impaired, I want a transcript of the spoken audio so th
 
 ## Setup/Installation Requirements
 
-- Clone this repository
-- Run npm install
-- API_KEY="(insert API key here)"
 - Open Webpage
 - User submits the input
 - The user will get back the match results from the input.
@@ -153,7 +150,7 @@ This app is built to be responsive to smaller screen sizes using a flex-box and 
 ## Development Road Map
 Features for future iterations include:
 - Add drop down menus for State and city instead to ease search experience or user input zipcode
--create a button to close the details
+- Create a button to close the details
 - Add ability for parents to chat with a live person
 - Add favorites feature where they can mark doctors they have visited and would like to recommend
 - Add ratings and review feature , so they can review and rate their experience with a doctor
