@@ -1,6 +1,10 @@
 #  The Right Doctor App
 
-The Right Doctor app is designed and created for parents/caregivers raising individuals with autism and Adults diagnosed with autism or other related disorders.
+The Right Doctor app is designed and created for individuals with autism or other related disorders.
+Whether you are the person with the diagnosis or you are caring for someone
+who has the diagnosis, it is important to know that the physician knows how to treat someone with a developmental disorder.
+Other practical uses are to see if there are options in your area . Since doctors whom have experience with treating individuals
+with autism are few and far between, you may be interested in moving to another state that carries a high population of autism-knowledgable physicians.
 
 ### Working Prototype
 
@@ -123,8 +127,9 @@ As a user who is hearing-impaired, I want a transcript of the spoken audio so th
 
 | Spec                                                         | Input             | Output                                                                          |
 | :----------------------------------------------------------- | :---------------- | :------------------------------------------------------------------------------ |
-| **The program takes the user input and puts it in an array** | Input: {"neurologist"}    | Output: All the doctors that specialize in neurology that has experience with autism somewhere in their description                      |
-| **The program takes the user input and puts it in an array** | Input: {"95121"} | Output: All the autism centers and doctors in the area that secialize in autism|
+| **The program takes the user input and puts it in an array** | Input: {"neurologist"}    | Output: A list of doctors' whose specialty is neurology                 |
+| **The program takes the user input and puts it in an array** | Input: {"autism"} | Output: All the doctors who have "autism" in their bio|
+| **The program takes the user input and puts it in an array** | Input: {"California"} | Output: All the doctors who have "autism" in their bio of whom are located in California|
 
 
 
@@ -147,8 +152,8 @@ This app is built to be responsive to smaller screen sizes using a flex-box and 
 
 ## Development Road Map
 Features for future iterations include:
-- Add drop down menus for State and city instead to ease search experience
--create a button to close the details as well
+- Add drop down menus for State and city instead to ease search experience or user input zipcode
+-create a button to close the details
 - Add ability for parents to chat with a live person
 - Add favorites feature where they can mark doctors they have visited and would like to recommend
 - Add ratings and review feature , so they can review and rate their experience with a doctor

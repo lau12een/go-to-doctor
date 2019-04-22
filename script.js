@@ -24,15 +24,13 @@ function formatQueryParams(params) {
 
 /******Fetch information, if there's an error display a message**************************/
 
-function getDoctorInfo(query, specialty, slug, radius) {
+function getDoctorInfo(query, specialty, state) {
     const params = {
         query: query,
         specialty_uid: specialty,
-        location: slug,
-        //`${zip[0]},${zip[1]},${radius}`,
-        //   'ca-san-jose',
+        location: state,
         skip: 0,
-        limit: radius,
+        limit: 100,
         user_key: doctorAPIKey,
     };
     //Setting up parameters*************/
@@ -153,28 +151,12 @@ $('form').submit(event => {
     event.preventDefault();
     const query = $('.search-diagnosis-input').val();
     const specialty = $('.search-doctor-specialty-input').val();
-    const slug = $('.search-state-city').val();
-    const radius = $('.search-distance-input').val();
-    console.log(query, specialty, slug, radius);
-    getDoctorInfo(query, specialty, slug, radius);
+    const state = $('.search-state').val();
+    //    const radius = $('.search-distance-input').val();
+    console.log(query, specialty, state);
+    getDoctorInfo(query, specialty, state);
 });
 
-
-/*------ when "Find my doctor!" is clicked , reload search resolts
-
-$('#something').click(function() {
-    location.reload();
-});
-
-
-/*--- When there are no results enter error message ---*/
-//$('.search-btn').on('keyup', function (event) {
-//    if ($('.doctor-info').children().length === 0) {
-//        $('.not-found').css('display', 'block');
-//    } else {
-//        $('.not-found').css('display', 'none');
-//    }
-//});
 
 
 /*--- When "find doctor " button is clicked , show the search page ---*/
@@ -198,17 +180,3 @@ $(document).on('click', '.collapsible', function (event) {
     $(this).parent().find('.content').addClass('active');
     $(this).parent().find('.content').show();
 });
-
-//$(document).on('click', '.collapsible', function (event) {
-//            event.preventDefault();
-//            //details expand and collapse
-//            $(".content").hide();
-//            $('.collapsible').click(function)() {
-//                if ($(this).next('.content').css("display") == "none") {
-//                    $(this).next('.content').show();
-//                    $(this).find("img").attr("src", "http://www3.telus.net/jianlu58/white_minus.gif");
-//                } else {
-//                    $(this).next('.content').hide();
-//                    $(this).find("img").attr("src", "http://www3.telus.net/jianlu58/white_plus.gif");
-//                }
-//            });
