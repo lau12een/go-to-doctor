@@ -92,7 +92,8 @@ form {
 }
 
 label,
-input {
+input,
+select {
     display: inline-block;
     width: 49%;
     text-align: left;
@@ -303,7 +304,8 @@ button {
     }
 
     label,
-    input {
+    input,
+    select {
         display: block;
         width: 100%;
         text-align: center;

@@ -34,7 +34,18 @@
                 <div class="search-form-responsive">
                     <div class="form-row">
                         <label for="search-doctor-specialty">Search by specialty (optional) </label>
-                        <input type="text" name="search-doctor-specialty" class="search-doctor-specialty-input" value="pediatrician" placeholder="Ex. Pediatrician, Dentist">
+                        <select id="specialty" name="specialty" class="search-doctor-specialty-input" required>
+                            <option value='developmental-behavioral-pediatrician'>Developmental Behavioral Pediatrics</option>
+                            <option value='family-practitioner'>Family Practitioner</option>
+                            <option value='mental-health-nurse-practitioner'>Mental Health Nurse Practitioner</option>
+                            <option value='neurologist'>Neurologist</option>
+                            <option value='occupational-therapist'>Occupational Therapist</option>
+                            <option value='pediatrician'>Pediatrician</option>
+                            <option value='psychiatrist'>Psychiatrist</option>
+                            <option value='psychiatry-neurology-behavioral-neurology-neuropsychiatry'>Psychiatry Neurology Behavioral Neurology Neuropsychiatry</option>
+                            <option value='psychiatry-neurology-psychosomatic-medicine'>Psychiatry Neurology Psychosomatic Medicine</option>
+                            <option value='speech-therapist'>Speech Therapist</option>
+                        </select>
                     </div>
                     <div class="form-row hidden">
                         <label for="diagnosis">Enter diagnosis</label>
