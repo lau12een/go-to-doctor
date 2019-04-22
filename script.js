@@ -1,11 +1,3 @@
-//Would like to make the location parameter more loose . right now its requiring all lower-case and hyphens in between
-//Would like to have a + and - sign to expand and collapse details
-//on click ( if there is details) the + sign turns into a "-" when the minus sign is clicked
-//the plus sign appears and the content is hidden
-
-//https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=40.758896%2C-73.985130%2C50&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
-//https://api.betterdoctor.com/2016-03-01/doctors?specialty_uid=pediatrician&location=9%2C5%2C10&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
-//https://api.betterdoctor.com/2016-03-01/doctors?query=autism&specialty_uid=pediatrician&location=ca-san-francisco&skip=0&limit=10&user_key=bb7ff073337b3fe70c0afe5db792a84a
 'use strict'
 
 $(function () {
@@ -22,9 +14,6 @@ const doctorAPIKey = 'bb7ff073337b3fe70c0afe5db792a84a';
 
 
 /******** function for query parameters*************/
-
-
-
 
 //function formatQueryParams(params)
 function formatQueryParams(params) {
